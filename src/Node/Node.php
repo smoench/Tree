@@ -11,15 +11,21 @@
 
 namespace Tree\Node;
 
+/**
+ * @template TValue
+ * @template-implements NodeInterface<TValue>
+ */
 class Node implements NodeInterface
 {
+    /** @use NodeTrait<TValue> */
     use NodeTrait;
 
     /**
+     * @param TValue|null $value
      * @param array<int, NodeInterface> $children
      */
     public function __construct(
-        mixed $value = null,
+        $value = null,
         array $children = [],
     ) {
         $this->setValue($value);

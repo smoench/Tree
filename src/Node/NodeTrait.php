@@ -13,9 +13,13 @@ namespace Tree\Node;
 
 use Tree\Visitor\Visitor;
 
+/**
+ * @template TValue
+ */
 trait NodeTrait
 {
-    private mixed $value = null;
+    /** @var TValue|null */
+    private $value = null;
     private ?NodeInterface $parent = null;
 
     /**
@@ -23,14 +27,20 @@ trait NodeTrait
      */
     private array $children = [];
 
-    public function setValue(mixed $value): static
+    /**
+     * @param TValue|null $value
+     */
+    public function setValue($value): static
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function getValue(): mixed
+    /**
+     * @return TValue|null
+     */
+    public function getValue()
     {
         return $this->value;
     }

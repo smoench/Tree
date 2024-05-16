@@ -17,23 +17,27 @@ use Tree\Visitor\Visitor;
  * Interface for tree nodes.
  *
  * @author Nicolò Martini <nicmartnic@gmail.com>
+ *
+ * @template TValue
  */
 interface NodeInterface
 {
     /**
      * Set the value of the current node.
+     *
+     * @param TValue $value
      */
-    public function setValue(mixed $value): static;
+    public function setValue($value): static;
 
     /**
      * Get the current node value.
+     *
+     * @return TValue
      */
-    public function getValue(): mixed;
+    public function getValue();
 
     /**
      * Add a child.
-     *
-     * @return mixed
      */
     public function addChild(self $child): static;
 
@@ -58,8 +62,6 @@ interface NodeInterface
      * Replace the children set with the given one.
      *
      * @param array<int, NodeInterface> $children
-     *
-     * @return mixed
      */
     public function setChildren(array $children): static;
 
